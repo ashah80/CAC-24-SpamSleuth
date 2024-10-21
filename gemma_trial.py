@@ -10,6 +10,11 @@ from gemma.config import GemmaConfig, get_model_config
 from gemma.model import GemmaForCausalLM
 from gemma.tokenizer import Tokenizer
 
+from flask import Flask
+from flask_cors import CORS
+
+
+
 # Get Kaggle credentials from environment
 kaggle_username = os.getenv("KAGGLE_USERNAME")
 kaggle_key = os.getenv("KAGGLE_KEY")
@@ -80,3 +85,16 @@ def generate_response(prompt):
 # Example usage of the function
 output1 = generate_response('Why is the following message spam: I want $100 plz')
 output2 = generate_response('Why is the following message spam: I want $500 plz')
+
+
+app = Flask(__name__)
+cors = CORS(app, origins='*')
+
+@app.route("/members")
+
+def members():
+    # return jsonify({"members": ["Member1", "Member2", "Member3"]})
+    return {"members": ["Member1","Member2", output1, output2]}
+
+if __name__ == "__main__":
+    app.run(debug=True)
