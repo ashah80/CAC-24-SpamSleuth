@@ -6,7 +6,7 @@ load_dotenv(find_dotenv())
 openai.api_key = os.getenv("API_KEY")
 
 type = "text message"
-input = "WINNER!! As a valued network customer you have been selected to receivea 900 prize reward! To claim text WINNER to 87121."
+input = "College Board: Your scores from today's test will be available in a few weeks on the BigFuture School app. Download it here: https://cb.attn.tv/aSMY2moOD2ki. Text STOP to opt out or HELP for help."
 
 prompt1 = f"""Based on the following information, find out if it is a scam or not. If you do decide it is a scam, provide specific reasons as to why you think
 it is a scam in a way that anyone of any age can understand. The provided information is in the form {type}, and follows: {input}
