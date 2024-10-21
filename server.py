@@ -1,8 +1,8 @@
 from flask import Flask
-# from flask_cors import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
-# cors = CORS(app, origins='*')
+cors = CORS(app, origins='*')
 
 @app.route("/members")
 
