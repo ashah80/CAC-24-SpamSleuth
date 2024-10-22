@@ -73,28 +73,50 @@ def generate_response(prompt):
         USER_CHAT_TEMPLATE.format(prompt=prompt) +
         '<start_of_turn>model\n'
     )
-    
+    output = "This is scammy." + prompt
     # Generate model response
-    with torch.no_grad():  # Disable gradient calculations for efficiency
-        output = model.generate(formatted_prompt, device=device, output_len=100)
+    # with torch.no_grad():  # Disable gradient calculations for efficiency
+    #     output = model.generate(formatted_prompt, device=device, output_len=100)
     
     # Print and return the model's output
     print(f"Model output: {output}")
     return output
 
 # Example usage of the function
-output1 = generate_response('Why is the following message spam: I want $100 plz')
-output2 = generate_response('Why is the following message spam: I want $500 plz')
+# output1 = generate_response('Why is the following message spam: I want $100 plz')
+# output2 = generate_response('Why is the following message spam: I want $500 plz')
 
+
+output1 = "This is definitely a scam! Here are the reasons: \n 1. It is scammy \n 2. It is like aarav \n 3. It asks for a gazillion bucks"
+
+# app = Flask(__name__)
+# cors = CORS(app, origins='*')
+
+# @app.route("/members")
+
+# def members():
+#     # return jsonify({"members": ["Member1", "Member2", "Member3"]})
+#     return {"members": ["Member1","Member2", output1]}
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
-cors = CORS(app, origins='*')
+CORS(app)
 
-@app.route("/members")
+# A sample Python function you want to run
+def example_function(data):
+    return f"Received data: {data}"
 
-def members():
-    # return jsonify({"members": ["Member1", "Member2", "Member3"]})
-    return {"members": ["Member1","Member2", output1, output2]}
+# Define an API route that React can call
+@app.route('/api/run_function', methods=['POST'])
+def run_function():
+    data = request.json.get('input_data')
+    result = generate_response(data)
+    return jsonify({"result": result})
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
