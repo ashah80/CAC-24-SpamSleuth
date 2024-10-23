@@ -2,10 +2,10 @@ import React from 'react';
 
 function NavBar() {
   return (
-    <header className="bg-blue-600 text-white p-4">
+    <header className="bg-gradient-to-r from-purple-900 to-violet-950 text-white p-4 ">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <img src="/placeholder.svg?height=40&width=40" alt="SpamSleuth Logo" className="mr-2" />
+          <img src="/logoS.png" alt="SpamSleuth Logo" className="mr-2" />
           <h1 className="text-2xl font-bold">SpamSleuth</h1>
         </div>
         <nav>

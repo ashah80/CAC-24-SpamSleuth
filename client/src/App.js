@@ -25,4 +25,13 @@ function App() {
   );
 }
 
+// Possible future functionality: 
+/* 
+Check for spam button changing color during hover
+different image so it isn't creepy
+Gradient on "welcome" statement
+Add in cyan + teal (100-200) into the color theme
+
+*/
+
 export default App;

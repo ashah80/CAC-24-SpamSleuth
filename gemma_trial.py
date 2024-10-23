@@ -73,7 +73,7 @@ def generate_response(prompt):
         USER_CHAT_TEMPLATE.format(prompt=prompt) +
         '<start_of_turn>model\n'
     )
-    output = "This is scammy." + prompt
+    output = "This is scammy. " + prompt
     # Generate model response
     # with torch.no_grad():  # Disable gradient calculations for efficiency
     #     output = model.generate(formatted_prompt, device=device, output_len=100)

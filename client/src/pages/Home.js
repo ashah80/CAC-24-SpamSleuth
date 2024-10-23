@@ -9,7 +9,7 @@ export default function Home() {
   const handleSubmit = async () => {
     setIsLoading(true)
     try {
-      const response = await axios.post('/api/check_spam', {
+      const response = await axios.post('http://localhost:5000/api/run_function', {
         input_data: inputData
       })
       setResult(response.data.result)
@@ -19,37 +19,39 @@ export default function Home() {
     }
     setIsLoading(false)
   }
-
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex items-center mb-8">
-        <img src="/placeholder.svg?height=100&width=100" alt="Shield Icon" className="mr-4" />
-        <div>
-          <h2 className="text-3xl font-bold mb-2">Welcome to SpamSleuth</h2>
-          <p className="text-lg">
+    <div className=" mx-auto">
+      <div className="relative w-full h-96 h-screen bg-cover" style={{ backgroundImage: "url('/cover_image.png')" }}>
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center">
+          <h1 className="text-white  text-5xl md:text-7xl font-bold text-center">
+            Welcome to SpamSleuth!
+          </h1>
+          <br>
+          </br>
+          <p className="text-white text-5l md:text-5l font-bold text-center">
             Your trusted companion in the fight against scams and spam.
           </p>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 gap-8 mb-8">
+      <div className="grid md:grid-cols-2 gap-8 ">
         <div>
-          <img src="/placeholder.svg?height=300&width=400" alt="Elderly person using computer" className="rounded-lg shadow-md" />
+          <img src="/old.png" alt="Elderly person using computer" className=" shadow-md max-w-[500px]" />
         </div>
-        <div>
-          <h3 className="text-2xl font-semibold mb-4">Protect Yourself Online</h3>
-          <p className="mb-4">
-            SpamSleuth is designed to help people of all ages, especially seniors, 
-            stay safe from online scams and fraudulent messages.
+        <div className="flex flex-col justify-center -ml-40 pr-10">
+          <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text md:text-6xl ">Protect Yourself Online</h3>
+          <p className="text-2xl">
+            SpamSleuth is designed to help people of <span className="bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">ALL</span> ages, especially seniors, 
+            stay safe from  <span className="bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">online scams and fradulent messages.</span>
           </p>
-          <p>
+          <p className="text-2xl">
             Our easy-to-use tool analyzes suspicious texts and emails to help you 
-            determine if they're legitimate or potentially harmful.
+            <span className="bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold"> determine if they're legitimate or potentially harmful. </span>
           </p>
         </div>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold mb-4">Spam Check</h3>
-        <p className="mb-4">
+      <div className="bg-gradient-to-r from-purple-500 to-violet-950  p-6">
+        <h3 className="text-xl mb-6 text-white md:text-8xl font-extrabold text-center">Spam Check</h3>
+        <p className="mb-4 text-white text-lg text-center">
           Enter the text of a suspicious message below, and we'll analyze it for you.
         </p>
         <textarea
@@ -59,13 +61,15 @@ export default function Home() {
           onChange={(e) => setInputData(e.target.value)}
           placeholder="Paste the suspicious text here..."
         />
-        <button
-          onClick={handleSubmit}
-          disabled={isLoading}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
-        >
-          {isLoading ? "Checking..." : "Check for Spam"}
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={handleSubmit}
+            disabled={isLoading}
+            className=" bg-white px-4 py-2 rounded hover:bg-slate-400 transition-colors"
+          >
+            <span className='bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text hover: text-white font-extrabold text-2xl'> {isLoading ? "Checking..." : "Check for Spam"} </span>
+          </button>
+        </div>
         {result && (
           <div className="mt-4 p-4 bg-gray-100 rounded">
             <h4 className="font-semibold">Result:</h4>
