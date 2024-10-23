@@ -45,7 +45,7 @@ export default function Home() {
           </p>
           <p className="text-2xl">
             Our easy-to-use tool analyzes suspicious texts and emails to help you 
-            <span className="bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold"> determine if they're legitimate or potentially harmful. </span>
+            <span className="bg-gradient-to-r to-yellow-400 from-amber-500 text-transparent bg-clip-text font-extrabold"> determine if they're legitimate or potentially harmful. </span>
           </p>
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function Home() {
           <button
             onClick={handleSubmit}
             disabled={isLoading}
-            className=" bg-white px-4 py-2 rounded hover:bg-slate-400 transition-colors"
+            className=" bg-white px-4 py-2 rounded hover:bg-yellow-300 transition-colors"
           >
             <span className='bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text hover: text-white font-extrabold text-2xl'> {isLoading ? "Checking..." : "Check for Spam"} </span>
           </button>

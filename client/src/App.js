@@ -27,10 +27,11 @@ function App() {
 
 // Possible future functionality: 
 /* 
-Check for spam button changing color during hover
 different image so it isn't creepy
 Gradient on "welcome" statement
-Add in cyan + teal (100-200) into the color theme
+Add in yellow in more places (??)
+Make the Spam Check section a bit bigger
+Highlight some words in the info page
 
 */
 
