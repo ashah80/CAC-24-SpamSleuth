@@ -114,7 +114,7 @@ export default function Information() {
     <section className="grid md:grid-cols-[2fr_1fr]">
       <div className="gap-8 p-6 rounded-lg shadow-md mr-2">
         <div className="flex items-center mb-4">
-          <img src="/identity_theft.png" alt="Identity Theft Icon" className="mr-4" />
+          <img src="/scam.png" alt="Identity Theft Icon" className="mr-4" />
           <h3 className="text-2xl bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">
             Identity Theft
           </h3>
@@ -144,7 +144,7 @@ export default function Information() {
     <section className="grid md:grid-cols-[2fr_1fr]">
       <div className="gap-8 p-6 rounded-lg shadow-md mr-2">
         <div className="flex items-center mb-4">
-          <img src="/malware.png" alt="Malware Icon" className="mr-4" />
+          <img src="/security.png" alt="Malware Icon" className="mr-4" />
           <h3 className="text-2xl bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">
             Malware
           </h3>
@@ -174,7 +174,7 @@ export default function Information() {
     <section className="grid md:grid-cols-[2fr_1fr]">
       <div className="gap-8 p-6 rounded-lg shadow-md mr-2">
         <div className="flex items-center mb-4">
-          <img src="/sms_scam.png" alt="Smishing Icon" className="mr-4" />
+          <img src="/screen.png" alt="Smishing Icon" className="mr-4" />
           <h3 className="text-2xl bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">
             Smishing
           </h3>
@@ -204,7 +204,7 @@ export default function Information() {
     <section className="grid md:grid-cols-[2fr_1fr]">
       <div className="gap-8 p-6 rounded-lg shadow-md mr-2">
         <div className="flex items-center mb-4">
-          <img src="/ransomware.png" alt="Ransomware Icon" className="mr-4" />
+          <img src="/credit-card.png" alt="Ransomware Icon" className="mr-4" />
           <h3 className="text-2xl bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">
             Ransomware
           </h3>
@@ -234,7 +234,7 @@ export default function Information() {
     <section className="grid md:grid-cols-[2fr_1fr]">
       <div className="gap-8 p-6 rounded-lg shadow-md mr-2">
         <div className="flex items-center mb-4">
-          <img src="/social_engineering.png" alt="Social Engineering Icon" className="mr-4" />
+          <img src="/fraud-alert.png" alt="Social Engineering Icon" className="mr-4" />
           <h3 className="text-2xl bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">
             Social Engineering
           </h3>

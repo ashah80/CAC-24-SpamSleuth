@@ -16,7 +16,7 @@ export default function AboutUs() {
       </div>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-md">
-          <img src="/placeholder.svg?height=150&width=150" alt="Jane Doe" className="rounded-full mx-auto mb-4" />
+          <img src="/ashah.jpg" alt="Jane Doe" className="rounded-full mx-auto mb-4" />
           <h3 className="text-center text-2xl font-extrabold bg-gradient-to-r from-purple-400 to-violet-950 text-transparent bg-clip-text mb-3">Aarav Shah</h3>
           <p className="mb-4">
             Aarav is a software developer who has worked on many projects with many people. He's passionate about 
