@@ -35,11 +35,7 @@ y_pred = clf.predict(X_test)
 # Classification report
 print(classification_report(y_test, y_pred))
 
-# LIME explanation
-class_names = ['0', '1']
-explainer = LimeTextExplainer(class_names=class_names)
-
-def predict_and_explain(user_input):
+def return_email_predictions(user_input):
     # Transform the user input using the same TfidfVectorizer
     transformed_input = tfidf.transform([user_input])
     
@@ -49,7 +45,13 @@ def predict_and_explain(user_input):
     
     print(f'Predicted class: {prediction} (1 = spam, 0 = not spam)')
     print(f'Probability of being spam: {probability}')
+    if prediction == 0:
+        prediction = "ham"
+    else:
+        prediction = "spam"
+    return prediction, str(round(probability*100, 2)) + "%"
 
 # Usage
-user_input = input("Enter an email text to check if it's spam: ")
-predict_and_explain(user_input)
+# user_input = input("Enter an email text to check if it's spam: ")
+# prediction, probability = return_email_predictions(user_input)
+# print(f"{prediction} + {probability}")
