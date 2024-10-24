@@ -33,7 +33,7 @@ export default function AboutUs() {
           <h3 className="text-center text-2xl font-extrabold bg-gradient-to-r from-purple-400 to-violet-950 text-transparent bg-clip-text mb-3">Vishnu Vijay</h3>
           <p className="mb-4">
             Vishnu is a software engineer specializing in both front-end development and AI implementation. 
-            He's dedicated to using AI for social good. He wanted to join Aarav in this project after he heard after 
+            He's dedicated to using AI for social good. He wanted to join Aarav in this project after 
             having experiences with scammers himself.
           </p>
           <p className="italic ">

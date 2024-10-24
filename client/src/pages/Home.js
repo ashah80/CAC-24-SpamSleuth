@@ -21,7 +21,7 @@ export default function Home() {
   }
   return (
     <div className=" mx-auto">
-      <div className="relative w-full h-96 h-screen bg-cover" style={{ backgroundImage: "url('/cover_image.png')" }}>
+      <div className="relative w-full h-[500px] bg-cover" style={{ backgroundImage: "url('/cover_image.png')" }}>
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center">
           <h1 className="text-white  text-5xl md:text-7xl font-bold text-center">
             Welcome to SpamSleuth!
@@ -31,6 +31,14 @@ export default function Home() {
           <p className="text-white text-5l md:text-5l font-bold text-center">
             Your trusted companion in the fight against scams and spam.
           </p>
+          {/* <div class="flex min-h-screen items-center justify-center bg-gradient-to-tr to-blue-700 from-indigo-900 p-10">
+            <div class="w-max">
+              <h1
+                class="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-white font-bold">
+                Hello World
+              </h1>
+            </div>
+          </div> */}
         </div>
       </div>
       <div className="grid md:grid-cols-2 gap-8 ">
@@ -40,8 +48,8 @@ export default function Home() {
         <div className="flex flex-col justify-center -ml-40 pr-10">
           <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text md:text-6xl ">Protect Yourself Online</h3>
           <p className="text-2xl">
-            SpamSleuth is designed to help people of <span className="bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">ALL</span> ages, especially seniors, 
-            stay safe from  <span className="bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold">online scams and fradulent messages.</span>
+            SpamSleuth is designed to help people of <span className="text-violet-950 font-bold">ALL</span> ages, especially seniors, 
+            stay safe from  <span className="text-violet-950 font-bold">online scams and fradulent messages.</span>
           </p>
           <p className="text-2xl">
             Our easy-to-use tool analyzes suspicious texts and emails to help you 
@@ -65,9 +73,9 @@ export default function Home() {
           <button
             onClick={handleSubmit}
             disabled={isLoading}
-            className=" bg-white px-4 py-2 rounded hover:bg-yellow-300 transition-colors"
+            className=" bg-white px-4 py-2 rounded hover:bg-purple-200 transition-colors"
           >
-            <span className='bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text hover: text-white font-extrabold text-2xl'> {isLoading ? "Checking..." : "Check for Spam"} </span>
+            <span className='bg-gradient-to-r from-purple-500 to-violet-950 text-transparent bg-clip-text font-extrabold text-2xl'> {isLoading ? "Checking..." : "Check for Spam"} </span>
           </button>
         </div>
         {result && (

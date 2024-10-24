@@ -32,6 +32,7 @@ Gradient on "welcome" statement
 Add in yellow in more places (??)
 Make the Spam Check section a bit bigger
 Highlight some words in the info page
+CHANGED DESCRIPTION & BAR HEIGHT: PUSH AGAIN
 
 */
 
