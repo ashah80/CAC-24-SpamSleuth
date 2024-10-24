@@ -9,10 +9,9 @@ export default function AboutUs() {
           <img src="/logoB.png" alt="Team Icon" className="mr-4" />
           <p className="text-lg">
             SpamSleuth was created by two passionate developers who wanted to make the internet 
-            <span className="bg-gradient-to-r from-purple-500 to-violet-950 font-bold text-transparent bg-clip-text"> a safer place for everyone</span>, especially for <span className="bg-gradient-to-r to-yellow-400 from-amber-500 font-bold text-transparent bg-clip-text">those who might be more vulnerable to online scams.</span>
+            <span className="bg-gradient-to-r from-purple-500 to-violet-950 font-bold text-transparent bg-clip-text"> a safer place for everyone</span>, especially for <span className="bg-gradient-to-r from-purple-500 to-violet-950 font-bold text-transparent bg-clip-text">those who might be more vulnerable to online scams.</span>
           </p>
         </div>
-        <img src="/placeholder.svg?height=300&width=600" alt="Team working together" className="w-full rounded-lg mb-4" />
       </div>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-md">

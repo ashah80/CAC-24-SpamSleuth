@@ -38,7 +38,7 @@ export default function SpamSleuth() {
           <div className="border-b border-purple-100 p-6">
             <div className="grid md:grid-cols-2 gap-8 items-start">
               <div className="w-full">
-                <img src="/old.png" alt="Elderly person using computer" className="rounded-lg shadow-md w-full max-w-[500px] mx-auto" />
+                <img src="/old-people.png" alt="Elderly person using computer" className="rounded-lg shadow-md w-full max-w-[500px] mx-auto" />
               </div>
               <div className="flex flex-col justify-center">
                 <h3 className="text-3xl font-bold mb-4 text-purple-900">Protect Yourself Online</h3>
