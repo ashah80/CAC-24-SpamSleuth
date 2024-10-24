@@ -36,7 +36,6 @@ export default function SpamSleuth() {
       <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-md mb-8 border border-purple-200 w-full">
           <div className="border-b border-purple-100 p-6">
-            {/* Removed lines as per update 2 */}
             <div className="grid md:grid-cols-2 gap-8 items-start">
               <div className="w-full">
                 <img src="/old.png" alt="Elderly person using computer" className="rounded-lg shadow-md w-full max-w-[500px] mx-auto" />
@@ -56,7 +55,6 @@ export default function SpamSleuth() {
               </div>
             </div>
           </div>
-          
         </div>
 
         <div className="bg-white rounded-lg shadow-md border border-purple-200 w-full">
@@ -93,7 +91,23 @@ export default function SpamSleuth() {
               <div className="w-full p-4 bg-gray-100 rounded-lg flex items-start gap-4">
                 <div>
                   <h4 className="font-semibold mb-2">Analysis Result:</h4>
-                  <p>{result}</p>
+                  {result.split('\n').map((line, index) => {
+                    if (line.includes("This message has a")) {
+                      return (
+                        <p key={index} className="mb-4">{line}</p> // Adds double space after the first line
+                      );
+                    } else if (line.includes("1.") || line.includes("2.") || line.includes("3.")) {
+                      // Display bullet points for reasons and add extra space after last point (3.)
+                      return (
+                        <React.Fragment key={index}>
+                          <p>{line}</p>
+                          {line.includes("3.") && <br />} {/* Adds a double space after the last bullet */}
+                        </React.Fragment>
+                      );
+                    } else {
+                      return <p key={index}>{line}</p>;
+                    }
+                  })}
                 </div>
               </div>
             </div>

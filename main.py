@@ -11,8 +11,7 @@ load_dotenv(find_dotenv())
 openai.api_key = os.getenv("API_KEY")
 
 def analyze_message_gpt(input_text, message_type="text message or email"):
-    prompt = f"""Based on the following information, find out if it is a scam or not. If you do decide it is a scam, provide specific reasons as to why you think
-    it is a scam in a way that anyone of any age can understand. The provided information is in the form of {message_type}, and follows: {input_text}. Make sure to display your output in the following format:
+    prompt = f"""Based on the following information, determine whether the input message is spam or not. If you do decide it is a scam, provide specific reasons as to why you think it is a scam in a way that anyone of any age can understand. If you think it is not a scam, also provide your reasoning. Make sure to be fair in your judgement. The provided information is in the form of {message_type}, and follows: {input_text}. Make sure to display your output in the following format:
 
     spam (or ham)
 
