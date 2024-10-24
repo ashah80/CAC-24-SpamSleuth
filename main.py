@@ -3,7 +3,9 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from flask import Flask
 from textSpam import return_text_predictions
-from emailSpam import return_email_predictions
+# from emailSpam import return_email_predictions
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 load_dotenv(find_dotenv())
 openai.api_key = os.getenv("API_KEY")
@@ -36,25 +38,33 @@ def analyze_message_gpt(input_text, message_type="text message or email"):
 
     return ask_openai(prompt)
 
-# Example usage:
-message = "Congrats! You've been selected for a free vacation to the Bahamas! 🏖 Just click the link to claim your prize: [bit.ly/faketext123] Hurry, offer expires soon! Terms apply. Reply STOP to unsubscribe."
-isSpam, confidence = return_text_predictions(message)
-print(f"{isSpam} + {confidence}")
-response = analyze_message_gpt(message, "text message")
-response_lines = response.split('\n')
-gpt_classification = response_lines[0].strip().lower()
 
-gpt_classification = response.split('\n')[0].strip().lower()
-gpt_details = '\n'.join(response_lines[1:]).strip()
-print(isSpam)
-print(gpt_classification)
-if not (isSpam == gpt_classification):
-    isSpam = gpt_classification
-if isSpam == "ham":
-    isSpam = "not spam"
+app = Flask(__name__)
+CORS(app)
 
-output = "This message has a " + confidence + " chance of being " + isSpam +  "\n" + gpt_details
-print(output)
+@app.route('/api/run_function', methods=['POST'])
+def classifyspam():
+    message = request.json.get('input_data')    
+    isSpam, confidence = return_text_predictions(message)
+    print(f"{isSpam} + {confidence}")
+    response = analyze_message_gpt(message, "text message")
+    response_lines = response.split('\n')
+    gpt_classification = response_lines[0].strip().lower()
+
+    gpt_classification = response.split('\n')[0].strip().lower()
+    gpt_details = '\n'.join(response_lines[1:]).strip()
+    print(isSpam)
+    print(gpt_classification)
+    if not (isSpam == gpt_classification):
+        isSpam = gpt_classification
+    if isSpam == "ham":
+        isSpam = "not spam"
+
+    output = "This message has a " + confidence + " chance of being " + isSpam +  "\n" + gpt_details
+    return jsonify({"result": output})
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
     
