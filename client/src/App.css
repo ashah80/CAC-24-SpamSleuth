@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;    
 
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  .animate-typing {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    border-right: 4px solid;
+    animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+  }

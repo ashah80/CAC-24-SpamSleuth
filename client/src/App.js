@@ -27,11 +27,7 @@ function App() {
 
 // Possible future functionality: 
 /* 
-different image so it isn't creepy
-Gradient on "welcome" statement
-Add in yellow in more places (??)
-Make the Spam Check section a bit bigger
-Highlight some words in the info page
+Fix cutoff in typing animation
 CHANGED DESCRIPTION & BAR HEIGHT: PUSH AGAIN
 
 */

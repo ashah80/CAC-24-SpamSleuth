@@ -23,10 +23,14 @@ export default function SpamSleuth() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative w-full h-[400px] bg-cover bg-center" style={{ backgroundImage: "url('/cover_image.png')" }}>
+      <div className="relative w-full h-[650px] bg-cover bg-center" style={{ backgroundImage: "url('/cover_image.png')" }}>
         <div className="absolute inset-0 bg-purple-900 bg-opacity-70 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl font-bold mb-2 text-center">Welcome to SpamSleuth</h1>
-          <p className="text-xl text-center">Your trusted companion in the fight against scams and spam.</p>
+          <h1 className="text-4xl font-bold mb-2 text-center md:text-7xl">Welcome to SpamSleuth</h1>
+          <p className="text-white text-xl md:text-3xl  text-center">
+            <span className="animate-typing whitespace-nowrap border-r-4 border-r-white pr-5">
+              Your trusted companion in the fight against scams and spam.
+            </span>
+          </p>
         </div>
       </div>
       <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -46,7 +50,7 @@ export default function SpamSleuth() {
                 <p className="text-lg mb-4">
                   Our easy-to-use tool analyzes suspicious texts and emails to help you determine if they're legitimate or potentially harmful.
                 </p>
-                <p className="text-lg font-semibold text-purple-600">
+                <p className="text-lg font-semibold text-violet-950">
                   Stay informed, stay protected!
                 </p>
               </div>
