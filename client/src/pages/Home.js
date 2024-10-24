@@ -5,13 +5,15 @@ export default function SpamSleuth() {
   const [inputData, setInputData] = useState("")
   const [result, setResult] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [classificationType, setClassificationType] = useState("email") // Default to email
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
     try {
       const response = await axios.post('http://localhost:5000/api/run_function', {
-        input_data: inputData
+        input_data: inputData,
+        classification_type: classificationType
       })
       setResult(response.data.result)
     } catch (error) {
@@ -26,7 +28,7 @@ export default function SpamSleuth() {
       <div className="relative w-full h-[650px] bg-cover bg-center" style={{ backgroundImage: "url('/cover_image.png')" }}>
         <div className="absolute inset-0 bg-purple-900 bg-opacity-70 flex flex-col justify-center items-center text-white">
           <h1 className="text-4xl font-bold mb-2 text-center md:text-7xl">Welcome to SpamSleuth</h1>
-          <p className="text-white text-xl md:text-3xl  text-center">
+          <p className="text-white text-xl md:text-3xl text-center">
             <span className="animate-typing whitespace-nowrap border-r-4 border-r-white pr-5">
               Your trusted companion in the fight against scams and spam.
             </span>
@@ -65,13 +67,39 @@ export default function SpamSleuth() {
           <div className="p-6">
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
+                <div className="flex justify-center space-x-4 mb-6">
+                  <button
+                    type="button"
+                    onClick={() => setClassificationType("email")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                      classificationType === "email"
+                        ? "bg-purple-600 text-white"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }`}
+                  >
+                    Email
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setClassificationType("text")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                      classificationType === "text"
+                        ? "bg-purple-600 text-white"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }`}
+                  >
+                    Text Message
+                  </button>
+                </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-purple-900 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-purple-900 mb-1">
+                    {classificationType === "email" ? "Email Content" : "Text Message Content"}
+                  </label>
                   <textarea
                     id="message"
                     rows={4}
                     className="w-full px-3 py-2 text-gray-700 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    placeholder="Paste the suspicious text here..."
+                    placeholder={`Paste the suspicious ${classificationType === "email" ? "email" : "text message"} here...`}
                     value={inputData}
                     onChange={(e) => setInputData(e.target.value)}
                   ></textarea>
@@ -94,14 +122,13 @@ export default function SpamSleuth() {
                   {result.split('\n').map((line, index) => {
                     if (line.includes("This message has a")) {
                       return (
-                        <p key={index} className="mb-4">{line}</p> // Adds double space after the first line
+                        <p key={index} className="mb-4">{line}</p>
                       );
                     } else if (line.includes("1.") || line.includes("2.") || line.includes("3.")) {
-                      // Display bullet points for reasons and add extra space after last point (3.)
                       return (
                         <React.Fragment key={index}>
                           <p>{line}</p>
-                          {line.includes("3.") && <br />} {/* Adds a double space after the last bullet */}
+                          {line.includes("3.") && <br />}
                         </React.Fragment>
                       );
                     } else {

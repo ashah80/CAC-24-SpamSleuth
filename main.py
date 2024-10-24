@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from flask import Flask
 from textSpam import return_text_predictions
-# from emailSpam import return_email_predictions
+from emailSpam import return_email_predictions
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
@@ -15,7 +15,7 @@ def analyze_message_gpt(input_text, message_type="text message or email"):
 
     spam (or ham)
 
-    Reasons why this message is spam (or ham) listed
+    Reasons why this message is spam (or not spam) listed
 
     Resources to research further and links
     """
@@ -43,8 +43,11 @@ CORS(app)
 
 @app.route('/api/run_function', methods=['POST'])
 def classifyspam():
-    message = request.json.get('input_data')    
-    isSpam, confidence = return_text_predictions(message)
+    message = request.json.get('input_data')  
+    if request.json.get('classification_type') == "email":
+        isSpam, confidence = return_email_predictions(message)
+    else:
+        isSpam, confidence = return_text_predictions(message)
     print(f"{isSpam} + {confidence}")
     response = analyze_message_gpt(message, "text message")
     response_lines = response.split('\n')
@@ -64,26 +67,3 @@ def classifyspam():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-    
-
-# isSpam, confidence = return_spam_predictions("please work")
-# print(f"{isSpam} + {confidence}")
-# isSpam, confidence = predict("hello world")
-# print(f"{isSpam} + {confidence}")
-
-# print(response)
-
-# app = Flask(__name__)
-# @app.route("/members")
-# def members():
-#     return {"members": ["Member1", "Member2", "Member3"]}
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-# def printHello():
-#     print("HELLO")
-
-# printHello()
